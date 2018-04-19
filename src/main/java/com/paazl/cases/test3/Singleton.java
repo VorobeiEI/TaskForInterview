@@ -45,9 +45,8 @@ public class Singleton {
         return instance;
     }
 
-
-
-    public static void workWithUser() throws IOException {
+    
+    public int workWithUser(){
 
         int countAnswers = 0;
         int scores = 0;
@@ -75,10 +74,11 @@ public class Singleton {
 
         System.out.println("Your scores are: " + scores);
 
+        return scores;
     }
 
 
-    public static char initialize() {
+    private static char initialize() {
         scanner = new Scanner(System.in);
         String answer = null;
         boolean accept = false;
