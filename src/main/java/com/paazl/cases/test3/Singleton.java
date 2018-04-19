@@ -1,13 +1,19 @@
-package com.paazl.cases.test2;
+package com.paazl.cases.test3;
+
+import com.paazl.cases.test2.Developer;
+import com.paazl.cases.test2.DeveloperFactory;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main {
-    
-    @SuppressWarnings("serial")
+public class Singleton {
+    private static volatile Singleton instance;
+    private static Scanner scanner;
+    private static DeveloperFactory developerFactory;
+    private static Developer developer;
+
     private static final Map<String, Character> QUESTIONS = new HashMap<String, Character>() {
         {
             put("A Thread is a process", 'N');
@@ -24,17 +30,24 @@ public class Main {
         }
     };
 
-    private static Scanner scanner;
-    private static DeveloperFactory developerFactory;
-    private static Developer developer;
+    private Singleton() {
 
-      /*
-     * Implement a main method that is functionally identical to Test #1. In
-     * this case, use a DeveloperFactory that is able to produce 3 types of
-     * developers that implement a "print" method. The Factory should have a
-     * create method that takes the user's score as an argument.
-     */
-    public static void main(String[] args) throws IOException {
+    }
+
+    public static Singleton getInstance () {
+        if(instance == null){
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+
+
+
+    public static void workWithUser() throws IOException {
 
         int countAnswers = 0;
         int scores = 0;
@@ -61,10 +74,9 @@ public class Main {
         }
 
         System.out.println("Your scores are: " + scores);
-        developer = developerFactory.createDeveloper(scores);
-        developer.print();
 
     }
+
 
     public static char initialize() {
         scanner = new Scanner(System.in);
@@ -81,5 +93,4 @@ public class Main {
         }
         return answer.charAt(0);
     }
-
 }
