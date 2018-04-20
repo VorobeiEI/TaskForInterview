@@ -34,8 +34,8 @@ public class Singleton {
 
     }
 
-    public static Singleton getInstance () {
-        if(instance == null){
+    public static Singleton getInstance() {
+        if (instance == null) {
             synchronized (Singleton.class) {
                 if (instance == null) {
                     instance = new Singleton();
@@ -45,8 +45,8 @@ public class Singleton {
         return instance;
     }
 
-    
-    public int workWithUser(){
+
+    public int workWithUser() {
 
         int countAnswers = 0;
         int scores = 0;
@@ -61,9 +61,6 @@ public class Singleton {
         System.out.println("Please give your answers one by one, type Y/N and hit enter after each answer.\nRegister doesnt matter");
 
         for (String a : QUESTIONS.keySet()) {
-            if (countAnswers == QUESTIONS.size()) {
-                break;
-            }
             acceptedAnswer = initialize();
             if (QUESTIONS.get(a).equals(acceptedAnswer)) {
                 scores++;
@@ -72,12 +69,10 @@ public class Singleton {
             System.out.println("Your " + countAnswers + " answers accepted!");
         }
 
-        System.out.println("Your scores are: " + scores);
-
         return scores;
     }
 
-
+    //validation of what user has entered
     private static char initialize() {
         scanner = new Scanner(System.in);
         String answer = null;

@@ -45,9 +45,9 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        int countAnswers = 0;
-        int scores = 0;
-        char acceptedAnswer;
+        int countAnswers = 0; // count for whole number of answers
+        int scores = 0; //count of right given answers
+        char acceptedAnswer; //accepted answer of user after validation
 
         for (String a : QUESTIONS.keySet()) {
             System.out.println(a);
@@ -57,15 +57,13 @@ public class Main {
         System.out.println("Please give your answers one by one, type Y/N and hit enter after each answer.\nRegister doesnt matter");
 
         for (String a : QUESTIONS.keySet()) {
-            if (countAnswers == QUESTIONS.size()) {
-                break;
-            }
+
             acceptedAnswer = initialize();
             if (QUESTIONS.get(a).equals(acceptedAnswer)) {
                 scores++;
             }
             countAnswers++;
-            System.out.println("Your " + countAnswers + " answers accepted!");
+            System.out.println("Your " + countAnswers + " answer accepted!");
         }
         System.out.println("Your scores are: " + scores);
         if (scores <= 3) {
@@ -77,7 +75,8 @@ public class Main {
         }
     }
 
-    public static char initialize() {
+    //validation of what user has entered
+    private static char initialize() {
         scanner = new Scanner(System.in);
         String answer = null;
         boolean accept = false;

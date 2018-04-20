@@ -1,10 +1,5 @@
 package com.paazl.cases.test3;
 
-import com.paazl.cases.test2.Developer;
-import com.paazl.cases.test2.JuniorDeveloper;
-import com.paazl.cases.test2.MediorDeveloper;
-import com.paazl.cases.test2.SeniorDeveloper;
-
 public class DeveloperFactory {
 
     private Developer developer;
