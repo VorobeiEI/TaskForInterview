@@ -2,10 +2,9 @@ package com.paazl.cases.test2;
 
 public class DeveloperFactory {
 
-    private Developer developer;
-
     public Developer createDeveloper(int scores) {
 
+        Developer developer;
         if (scores <= 3) {
             developer = new JuniorDeveloper();
         } else if (scores <= 7) {

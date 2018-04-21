@@ -24,10 +24,6 @@ public class Main {
         }
     };
 
-    private static Scanner scanner;
-    private static DeveloperFactory developerFactory;
-    private static Developer developer;
-
     /*
      * Implement a main method that is functionally identical to Test #1. In
      * this case, use a DeveloperFactory that is able to produce 3 types of
@@ -39,7 +35,7 @@ public class Main {
         int countAnswers = 0; // count for whole number of answers
         int scores = 0; //count of right given answers
         char acceptedAnswer; //accepted answer of user after validation
-        developerFactory = new DeveloperFactory();
+        DeveloperFactory developerFactory = new DeveloperFactory();
 
         for (String a : QUESTIONS.keySet()) {
             System.out.println(a);
@@ -60,14 +56,14 @@ public class Main {
         }
 
         System.out.println("Your scores are: " + scores);
-        developer = developerFactory.createDeveloper(scores);
+        Developer developer = developerFactory.createDeveloper(scores);
         developer.print();
 
     }
 
     //validation of what user has entered
     private static char initialize() {
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String answer = null;
         boolean accept = false;
         while (!accept) {

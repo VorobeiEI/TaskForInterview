@@ -8,14 +8,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class FileWriterService {
-    private static File file;
     private static FileWriter fileWriter;
 
     private static final String newFile = "src/main/resources/com/paazl/cases/test4/testdata.new.csv";
 
     //Writing newPOJOS to file testdata.new.csv
     public static void writeToFile(List<POJO> newListPOJO, String firstRow) {
-        file = new File(newFile);
+        File file = new File(newFile);
         try {
             fileWriter = new FileWriter(file);
 

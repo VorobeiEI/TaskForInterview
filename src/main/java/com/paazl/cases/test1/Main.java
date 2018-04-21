@@ -1,16 +1,8 @@
 package com.paazl.cases.test1;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import org.omg.CORBA.PRIVATE_MEMBER;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Main {
     @SuppressWarnings("serial")
@@ -33,8 +25,6 @@ public class Main {
     private static final String JUNIOR = "You are a junior Java developer";
     private static final String MEDIOR = "You are a medior Java developer";
     private static final String SENIOR = "You are a senior Java developer";
-
-    private static Scanner scanner;
 
     /*
      * Implement the main method:
@@ -77,7 +67,7 @@ public class Main {
 
     //validation of what user has entered
     private static char initialize() {
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String answer = null;
         boolean accept = false;
         while (!accept) {

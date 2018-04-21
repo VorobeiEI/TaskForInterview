@@ -1,18 +1,13 @@
 package com.paazl.cases.test3;
 
-import com.paazl.cases.test2.Developer;
 import com.paazl.cases.test2.DeveloperFactory;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Singleton {
     private static volatile Singleton instance;
-    private static Scanner scanner;
-    private static DeveloperFactory developerFactory;
-    private static Developer developer;
 
     private static final Map<String, Character> QUESTIONS = new HashMap<String, Character>() {
         {
@@ -51,7 +46,7 @@ public class Singleton {
         int countAnswers = 0;
         int scores = 0;
         char acceptedAnswer;
-        developerFactory = new DeveloperFactory();
+        DeveloperFactory developerFactory = new DeveloperFactory();
 
         for (String a : QUESTIONS.keySet()) {
             System.out.println(a);
@@ -74,7 +69,7 @@ public class Singleton {
 
     //validation of what user has entered
     private static char initialize() {
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         String answer = null;
         boolean accept = false;
         while (!accept) {

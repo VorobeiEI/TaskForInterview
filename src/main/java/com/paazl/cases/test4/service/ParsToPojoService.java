@@ -10,7 +10,6 @@ import java.util.List;
 public class ParsToPojoService {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static POJO pojo;
     //the First row in file that cant be POJO - name;city;country;number;date
     public static String nonPOJORow;
 
@@ -22,7 +21,7 @@ public class ParsToPojoService {
 
             String[] parse = stringList.get(i).split(";");
 
-            pojo = new POJO();
+            POJO pojo = new POJO();
             pojo.setName(parse[0]);
             pojo.setCity(parse[1]);
             pojo.setCountry(parse[2]);
